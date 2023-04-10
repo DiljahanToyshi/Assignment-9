@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import img from "./Image/P3OLGJ1 copy 1.png";
 import img1 from "./Image/accounts 1.png";
 import img2 from "./Image/business 1.png";
@@ -69,10 +69,18 @@ const jobs = useLoaderData();
             Explore thousands of job opportunities with all the information you
             need. Its your future
           </p>
-          <div>
-            {
-                jobs.map(job =><Job key={job._id} job={job}></Job>)
-            }
+          <div className="grid grid-cols-2 gap-4">
+            {jobs.map((job) => (
+              <Job key={job._id} job={job}></Job>
+            ))}
+          </div>
+          <div className="text-center mt-5">
+            <button
+              type="button"
+              className=" bg-gradient-to-r from-indigo-400 to-violet-400 font-medium  transition duration-200  shadow-md mx-auto  px-4 py-2 md:px-8 md:py-3 m-2 text-lg rounded-md border-transparent border-2  text-white"
+            >
+              See All Jobs
+            </button>
           </div>
         </section>
       </div>
