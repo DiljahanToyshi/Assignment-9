@@ -2,10 +2,11 @@ import React from 'react';
 import frame from '../Image/Frame.png';
 import vector from '../Image/Vector.png';
 import JobDetails from '../JobDetails';
+import { Link } from 'react-router-dom';
 
 const Job = ({job}) => {
-    const { company_name, description, jobTitle, location, logo, salary } = job;
-    console.log(job);
+    const { company_name, jobTitle, location, logo, salary,_id } = job;
+    
     return (
       <div>
         <div className=" mt-8 rounded-md border-2 border-gray-300 text-left pl-5 pb-5 ">
@@ -26,18 +27,16 @@ const Job = ({job}) => {
             <img src={vector} className="ml-6" alt="" />
             <p>{salary}</p>
           </div>
-          <button
-            type="button"
-            className=" bg-gradient-to-r from-indigo-400 to-violet-400 font-medium  transition duration-200  shadow-md px-4 py-2 text-lg rounded-md border-transparent border-2  text-white"
-          >
-            View Details
-          </button>
+          <Link to={`/${_id}`}>
+            <button
+              type="button"
+              className=" bg-gradient-to-r from-indigo-400 to-violet-400 font-medium  transition duration-200  shadow-md px-4 py-2 text-lg rounded-md border-transparent border-2  text-white"
+            >
+              View Details
+            </button>
+          </Link>
         </div>
-        <div>
-            {
-                <JobDetails ></JobDetails>
-            }
-        </div>
+       
       </div>
     );
 };
